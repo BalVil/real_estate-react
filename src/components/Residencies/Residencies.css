@@ -1,0 +1,90 @@
+.r-container {
+  overflow: hidden;
+}
+
+.r-head {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.r-card {
+  max-width: max-content;
+  gap: 0.6rem;
+  margin: auto;
+  padding: 1rem;
+  border-radius: 10px;
+  transition: all 200ms ease-in;
+}
+
+.r-card > img {
+  max-width: 15rem;
+}
+
+.r-price {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.r-price__sign {
+  color: orange;
+}
+
+.r-card > :nth-child(3) {
+  font-size: 1.5rem;
+}
+
+.r-card > :nth-child(4) {
+  width: 15rem;
+  font-size: 0.7rem;
+}
+
+.r-card:hover {
+  /* scale: 1.02; */
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(136, 160, 255, 0.45) 218%
+  );
+  box-shadow: 0 72px 49px -51px rgba(136, 160, 255, 0.2);
+  cursor: pointer;
+}
+
+.swiper-horizontal {
+  overflow: visible;
+}
+
+.r-buttons {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  gap: 1rem;
+}
+
+.r-buttons button {
+  padding: 0.2rem 0.8rem;
+  border-radius: 5px;
+  color: blue;
+  background-color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.r-buttons > :nth-child(1) {
+  background-color: #eeeeff;
+}
+
+.r-buttons > :nth-child(2) {
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 767px) {
+  .r-head {
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .r-buttons {
+    position: initial;
+    margin-top: 1rem;
+  }
+}

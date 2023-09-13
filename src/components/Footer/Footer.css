@@ -1,0 +1,31 @@
+.f-container {
+  justify-content: center;
+  gap: 1rem;
+}
+
+.f-first {
+  gap: 1rem;
+}
+
+.logo-wrap {
+  width: 120px;
+}
+
+.f-menu {
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  font-weight: 500s;
+}
+
+@media (max-width: 767px) {
+  .f-container > div {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .f-container {
+    justify-content: space-around;
+  }
+}
