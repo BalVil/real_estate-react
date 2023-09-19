@@ -28,7 +28,7 @@ function Header() {
             <a href="#contact">Contact Us</a>
             <a href="#started">Get Started</a>
             <button className="button">
-              <a href="">Contact</a>
+              <a href="#contact">Contact</a>
             </button>
           </div>
         </OutsideClickHandler>
