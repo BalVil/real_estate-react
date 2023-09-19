@@ -5,7 +5,7 @@ import "./Contact.css";
 
 function Contact() {
   return (
-    <section className="c-wrapper">
+    <section className="c-wrapper" id="contact">
       <div className="paddings innerWidth flexCenter c-container">
         <div className="flexColStart c-first">
           <p className="orangeText">Our Contacts</p>
@@ -74,7 +74,7 @@ function Contact() {
         </div>
         <div className="c-second">
           <div className="image-container">
-            <img src="./img/contact.jpg" alt="" />
+            <img src="./img/contact.webp" alt="contact" />
           </div>
         </div>
       </div>

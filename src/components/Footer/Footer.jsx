@@ -6,7 +6,7 @@ function Footer() {
       <div className="paddings innerWidth flexCenter f-container">
         <div className="flexColStart f-first">
           <div className="logo-wrap">
-            <img src="./img/logo2.png" alt="logo" width={120} />
+            <img src="./img/logo.svg" alt="logo" width={120} />
           </div>
 
           <p className="secondaryText">

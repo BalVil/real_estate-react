@@ -50,7 +50,7 @@ function Residencies() {
   }, []);
 
   return (
-    <section className="r-wrapper">
+    <section className="r-wrapper" id="residencies">
       <div className="paddings innerWidth r-container">
         <div className="r-head flexColStart">
           <p className="orangeText">Best Choices</p>

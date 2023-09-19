@@ -14,11 +14,11 @@ import data from "../../utils/accordion";
 
 function Value() {
   return (
-    <section className="v-wrapper">
+    <section className="v-wrapper" id="value">
       <div className="paddings innerWidth flexCenter v-container">
         <div className="flexCenter v-first">
           <div className="image-container">
-            <img src="./img/value.png" alt="" />
+            <img src="./img/value.webp" alt="" />
           </div>
         </div>
         <div className="flexColStart v-second">

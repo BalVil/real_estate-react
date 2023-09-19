@@ -65,7 +65,7 @@ function Hero() {
             transition={{ duration: 2, type: "spring" }}
             className="image-container"
           >
-            <img src="./img/hero-image.png" alt="" />
+            <img src="./img/hero-image.webp" alt="" />
           </motion.div>
         </div>
       </div>

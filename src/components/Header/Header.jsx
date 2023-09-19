@@ -15,7 +15,7 @@ function Header() {
     <section className="header-wrapper">
       <div className="flexCenter paddings innerWidth header-container">
         <div className="logo-wrap">
-          <img src="./img/logo.png" alt="logo" width={100} />
+          <img src="./img/logo.svg" alt="logo" width={100} />
         </div>
 
         <OutsideClickHandler onOutsideClick={() => setMenuOpened(false)}>
@@ -23,10 +23,10 @@ function Header() {
             className="flexCenter header-menu"
             style={getMenuStyles(menuOpened)}
           >
-            <a href="">Residencies</a>
-            <a href="">Our Value</a>
-            <a href="">Contact Us</a>
-            <a href="">Get Started</a>
+            <a href="#residencies">Residencies</a>
+            <a href="#value">Our Value</a>
+            <a href="#contact">Contact Us</a>
+            <a href="#started">Get Started</a>
             <button className="button">
               <a href="">Contact</a>
             </button>

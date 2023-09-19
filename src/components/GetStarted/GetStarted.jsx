@@ -3,7 +3,7 @@ import "./GetStarted.css";
 
 function GetStarted() {
   return (
-    <section className="g-wrapper">
+    <section className="g-wrapper" id="started">
       <div className="paddings innerWidth g-container">
         <div className="flexColCenter inner-container">
           <p className="primaryText">Get Started with us</p>
