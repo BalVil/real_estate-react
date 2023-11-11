@@ -1,0 +1,65 @@
+.property-container {
+  position: relative;
+  gap: 2rem;
+}
+
+.property-container .like {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  cursor: pointer;
+}
+
+.property-container > img {
+  max-height: 35rem;
+  align-self: center;
+  border-radius: 1rem;
+}
+
+.property-details {
+  width: 100%;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.property-details > div {
+  flex: 1;
+  gap: 1.5rem;
+}
+
+.property-details .first__head {
+  width: 100%;
+  justify-content: space-between;
+  gap: 0.2rem;
+}
+
+.property-details .first__head > p {
+  font-size: 2rem;
+}
+
+.facilities {
+  gap: 1rem;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+.facility {
+  gap: 0.5rem;
+}
+
+.property-details .desc {
+  text-align: justify;
+}
+
+.property-details .location {
+  gap: 1rem;
+}
+
+.property-details .location span:first-child {
+  margin-right: 0.5rem;
+}
+
+.property-details .button {
+  width: 100%;
+  margin-top: 1rem;
+}

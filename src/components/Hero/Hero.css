@@ -78,9 +78,9 @@
 }
 
 @media (max-width: 767px) {
-  .hero-container {
+  /* .hero-container {
     margin-top: 2rem;
-  }
+  } */
 
   .hero-second {
     width: 100%;

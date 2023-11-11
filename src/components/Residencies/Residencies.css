@@ -7,48 +7,6 @@
   margin-bottom: 2rem;
 }
 
-.r-card {
-  max-width: max-content;
-  gap: 0.6rem;
-  margin: auto;
-  padding: 1rem;
-  border-radius: 10px;
-  transition: all 200ms ease-in;
-}
-
-.r-card > img {
-  max-width: 15rem;
-}
-
-.r-price {
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.r-price__sign {
-  color: orange;
-}
-
-.r-card > :nth-child(3) {
-  font-size: 1.5rem;
-}
-
-.r-card > :nth-child(4) {
-  width: 15rem;
-  font-size: 0.7rem;
-}
-
-.r-card:hover {
-  /* scale: 1.02; */
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(136, 160, 255, 0.45) 218%
-  );
-  box-shadow: 0 72px 49px -51px rgba(136, 160, 255, 0.2);
-  cursor: pointer;
-}
-
 .swiper-horizontal {
   overflow: visible;
 }
