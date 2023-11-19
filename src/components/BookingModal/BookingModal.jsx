@@ -43,15 +43,14 @@ function BookingModal({ opened, onClose, email, propertyId }) {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          gap: "1rem",
         },
       }}
     >
-      {/* <div className="flexColCenter"> */}
       <DatePicker value={value} onChange={setValue} minDate={new Date()} />
       <Button disabled={!value || isLoading} onClick={() => mutate()}>
         Book visit
       </Button>
-      {/* </div> */}
     </Modal>
   );
 }

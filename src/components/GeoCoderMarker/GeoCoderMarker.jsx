@@ -28,7 +28,7 @@ function GeoCoderMarker({ address }) {
           map.flyTo([lat, lng], 10);
         }
       });
-  }, [address]);
+  }, [address, map]);
 
   return (
     <Marker position={position} icon={DefaultIcon}>

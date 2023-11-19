@@ -4,6 +4,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useMutation } from "@tanstack/react-query";
 import UserDetailContext from "../../context/UserDetailContext";
 import { createUser, fetchCurrentUser } from "../../services/api";
+import useFavorites from "../../hooks/useFavorites";
+import useBookings from "../../hooks/useBookings";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { PageLoader } from "../PageLoader/PageLoader";
@@ -44,6 +46,9 @@ function Layout() {
     mutate,
     user?.email,
   ]);
+
+  useFavorites();
+  useBookings();
 
   return (
     <>

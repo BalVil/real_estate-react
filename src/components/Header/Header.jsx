@@ -3,18 +3,18 @@ import { Link, NavLink } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { BiMenuAltRight } from "react-icons/bi";
 import OutsideClickHandler from "react-outside-click-handler";
+import { useDisclosure } from "@mantine/hooks";
+import { getMenuStyles } from "../../utils/common";
+import useAuthCheck from "../../hooks/useAuthCheck";
 import ProfileMenu from "../ProfileMenu/ProfileMenu";
+import AddPropertyModal from "../AddPropertyModal/AddPropertyModal";
 import "./Header.css";
 
 function Header() {
   const [menuOpened, setMenuOpened] = useState(false);
+  const [opened, { open, close }] = useDisclosure(false);
   const { loginWithRedirect, user, isAuthenticated } = useAuth0();
-
-  const getMenuStyles = (menuOpened) => {
-    if (document.documentElement.clientWidth <= 767) {
-      return { right: !menuOpened && "-100%" };
-    }
-  };
+  const { validateLogin } = useAuthCheck();
 
   return (
     <section className="header-wrapper">
@@ -31,11 +31,16 @@ function Header() {
             style={getMenuStyles(menuOpened)}
           >
             <NavLink to="/properties">Properties</NavLink>
-            {/* <a href="#residencies">Residencies</a>
-            <a href="#value">Our Value</a>
-            <a href="#contact">Contact Us</a>
-            <a href="#started">Get Started</a> */}
             <a href="#contact">Contact</a>
+
+            <div
+              onClick={() => {
+                validateLogin() && open();
+              }}
+            >
+              Add property
+            </div>
+            <AddPropertyModal opened={opened} onClose={close} />
 
             {!isAuthenticated ? (
               <button className="button" onClick={() => loginWithRedirect()}>

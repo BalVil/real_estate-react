@@ -6,7 +6,7 @@ import { Button } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { toast } from "react-toastify";
 import { PuffLoader } from "react-spinners";
-import { AiFillHeart, AiTwotoneCar } from "react-icons/ai";
+import { AiTwotoneCar } from "react-icons/ai";
 import { FaShower } from "react-icons/fa";
 import { MdMeetingRoom, MdLocationPin } from "react-icons/md";
 
@@ -15,6 +15,7 @@ import useAuthCheck from "../../hooks/useAuthCheck";
 import pluralize from "../../utils/pluralize";
 import Map from "../../components/Map/Map";
 import BookingModal from "../../components/BookingModal/BookingModal";
+import FavoriteHeart from "../../components/FavoriteHeart/FavoriteHeart";
 import UserDetailContext from "../../context/UserDetailContext";
 import "./Property.css";
 
@@ -75,7 +76,7 @@ function Property() {
     <div className="wrapper">
       <div className="flexColStart paddings innerWidth property-container">
         <div className="like">
-          <AiFillHeart size={24} color="white" />
+          <FavoriteHeart id={id} />
         </div>
         <img src={data?.image} alt={data?.title} />
         <div className="flexCenter property-details">
