@@ -88,7 +88,7 @@ function Residencies() {
         </div>
 
         <swiper-container init="false" ref={swiperRef}>
-          {data.slice(0, 8).map((card) => (
+          {data?.slice(0, 8).map((card) => (
             <swiper-slide key={card.id}>
               <PropertyCard card={card} />
             </swiper-slide>
