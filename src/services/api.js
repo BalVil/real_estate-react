@@ -7,10 +7,14 @@ export const api = axios.create({
 
 export const getProperties = async () => {
   try {
-    const res = await api.get("/property/", { timeout: 10 * 1000 });
+    const res = await api.get("/properties/", { timeout: 10 * 1000 });
 
     if (res.status === 400 || res.status === 500) {
       throw res.data;
+    }
+
+    if (res.status < 200 || res.status >= 300) {
+      throw new Error(`Unexpected status code: ${res.status}`);
     }
 
     return res.data;
@@ -22,7 +26,7 @@ export const getProperties = async () => {
 
 export const getProperty = async (id) => {
   try {
-    const res = await api.get(`/property/${id}`, { timeout: 10 * 1000 });
+    const res = await api.get(`/properties/${id}`, { timeout: 10 * 1000 });
 
     if (res.status === 400 || res.status === 500) {
       throw res.data;
@@ -38,7 +42,7 @@ export const getProperty = async (id) => {
 export const createProperty = async (data, token) => {
   try {
     await api.post(
-      "/property/create",
+      "/properties/create",
       { data },
       { headers: { Authorization: `Bearer ${token}` } }
     );
