@@ -1,5 +1,4 @@
 import axios from "axios";
-import dayjs from "dayjs";
 import { toast } from "react-toastify";
 
 export const api = axios.create({
@@ -32,6 +31,19 @@ export const getProperty = async (id) => {
     return res.data;
   } catch (err) {
     toast.error("Something went wrong");
+    throw err;
+  }
+};
+
+export const createProperty = async (data, token) => {
+  try {
+    await api.post(
+      "/property/create",
+      { data },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+  } catch (err) {
+    toast.error("Something went wrong while creating property");
     throw err;
   }
 };
@@ -78,7 +90,7 @@ export const bookVisit = async (date, propertyId, email, token) => {
       {
         email,
         id: propertyId,
-        date: dayjs(date).format("DD/MM/YYYY"),
+        date,
       },
       {
         headers: { Authorization: `Bearer ${token}` },

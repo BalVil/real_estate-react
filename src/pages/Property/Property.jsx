@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Button } from "@mantine/core";
@@ -20,16 +20,12 @@ import UserDetailContext from "../../context/UserDetailContext";
 import "./Property.css";
 
 function Property() {
-  // const params = useParams();
-  // const { propertyId } = params;
-  // console.log(propertyId);
-
-  const { pathname } = useLocation();
-  const id = pathname.split("/").slice(-1)[0];
+  const params = useParams();
+  const { propertyId } = params;
 
   const { data, isError, isLoading } = useQuery({
-    queryKey: ["property", id],
-    queryFn: () => getProperty(id),
+    queryKey: ["property", propertyId],
+    queryFn: () => getProperty(propertyId),
   });
 
   const [opened, { open, close }] = useDisclosure(false);
@@ -41,11 +37,11 @@ function Property() {
   } = useContext(UserDetailContext);
 
   const { mutate: cancelBooking, isLoading: cancelling } = useMutation({
-    mutationFn: () => removeBooking(id, user?.email, token),
+    mutationFn: () => removeBooking(propertyId, user?.email, token),
     onSuccess: () => {
       setUserDetails((prev) => ({
         ...prev,
-        bookings: prev.bookings.filter((booking) => booking?.id !== id),
+        bookings: prev.bookings.filter((booking) => booking?.id !== propertyId),
       }));
 
       toast.success("Booking cancelled", { position: "bottom-right" });
@@ -76,12 +72,12 @@ function Property() {
     <div className="wrapper">
       <div className="flexColStart paddings innerWidth property-container">
         <div className="like">
-          <FavoriteHeart id={id} />
+          <FavoriteHeart id={propertyId} />
         </div>
         <img src={data?.image} alt={data?.title} />
         <div className="flexCenter property-details">
           <div className="flexColStart first">
-            <div className="flexStart first__head">
+            <div className="flexStart head">
               <span className="primaryText">{data?.title}</span>
               <p className="orangeText">$ {data?.price}</p>
             </div>
@@ -123,7 +119,7 @@ function Property() {
               </div>
             </div>
 
-            {bookings?.map((booking) => booking.id).includes(id) ? (
+            {bookings?.map((booking) => booking.id).includes(propertyId) ? (
               <>
                 <Button
                   variant="outline"
@@ -136,7 +132,10 @@ function Property() {
                 </Button>
                 <span>
                   You have already booked it for&nbsp;
-                  {bookings?.filter((booking) => booking.id === id)[0].date}
+                  {
+                    bookings?.filter((booking) => booking.id === propertyId)[0]
+                      .date
+                  }
                 </span>
               </>
             ) : (
@@ -154,7 +153,7 @@ function Property() {
               opened={opened}
               onClose={close}
               email={user?.email}
-              propertyId={id}
+              propertyId={propertyId}
             />
           </div>
 

@@ -12,15 +12,12 @@ const useFavorites = () => {
   const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ["allFavorites"],
     queryFn: () => {
-      // Check if user is true before making the API call
       if (user) {
         return getFavorites(user?.email, userDetails?.token);
       }
       // Return a promise that resolves to [] if user is false
       return Promise.resolve([]);
     },
-    // onSuccess: (data) =>
-    //   setUserDetails((prev) => ({ ...prev, favorites: data })),
     enabled: user !== undefined,
     staleTime: 30000,
   });

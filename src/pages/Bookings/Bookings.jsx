@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { PuffLoader } from "react-spinners";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import PropertyCard from "../../components/PropertyCard/PropertyCard";
 import useProperties from "../../hooks/useProperties";
-import useFilteredProperties from "../../hooks/useFilteredProperties";
-import "./Properties.css";
+import useFilteredBookings from "../../hooks/useFilteredBookings";
+import UserDetailContext from "../../context/UserDetailContext";
+import "../Properties/Properties.css";
 
-function Properties() {
+function Bookings() {
   const { data, isLoading, error } = useProperties();
   const [searchValue, setSearchValue] = useState("");
+  const {
+    userDetails: { bookings },
+  } = useContext(UserDetailContext);
 
-  const filteredData = useFilteredProperties(data, searchValue);
+  const filteredBookings = useFilteredBookings(data, bookings, searchValue);
 
   if (error) {
     return (
@@ -38,7 +42,7 @@ function Properties() {
     <div className="flexColCenter paddings innerWidth properties-container">
       <SearchBar filter={searchValue} setFilter={setSearchValue} />
       <div className="paddings flexCenter properties">
-        {filteredData.map((card) => (
+        {filteredBookings.map((card) => (
           <PropertyCard card={card} key={card.id} />
         ))}
       </div>
@@ -46,4 +50,4 @@ function Properties() {
   );
 }
 
-export default Properties;
+export default Bookings;

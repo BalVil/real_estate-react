@@ -1,10 +1,11 @@
 import React from "react";
 import { useForm } from "@mantine/form";
-import { Select, TextInput } from "@mantine/core";
+import { Button, Group, Select, TextInput } from "@mantine/core";
 import { validateString } from "../../utils/common";
 import Map from "../Map/Map";
+import "./AddLocation.css";
 
-function AddLocation({ propertyDetails, setPropertyDetails }) {
+function AddLocation({ nextStep, propertyDetails, setPropertyDetails }) {
   const form = useForm({
     initialValues: {
       city: propertyDetails?.city,
@@ -17,18 +18,25 @@ function AddLocation({ propertyDetails, setPropertyDetails }) {
   });
 
   const { city, address } = form.values;
+
+  const handleSubmit = () => {
+    const { hasErrors } = form.validate();
+
+    if (!hasErrors) {
+      setPropertyDetails((prev) => ({ ...prev, city, address }));
+      nextStep();
+    }
+  };
+
   return (
-    <form>
-      <div
-        className="flexCenter"
-        style={{
-          flex: 1,
-          justifyContent: "space-between",
-          gap: "3rem",
-          marginTop: "3rem",
-        }}
-      >
-        <div className="flexColStart">
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit();
+      }}
+    >
+      <div className="flexCenter form-content">
+        <div className="flexColStart form-content_first">
           <Select
             w={"100%"}
             withAsterisk
@@ -47,10 +55,14 @@ function AddLocation({ propertyDetails, setPropertyDetails }) {
           />
         </div>
 
-        <div style={{ flex: 2 }}>
+        <div className="form-content_second">
           <Map address={address} city={city} />
         </div>
       </div>
+
+      <Group mt={"xl"}>
+        <Button type="submit">Next Step</Button>
+      </Group>
     </form>
   );
 }

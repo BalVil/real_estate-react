@@ -23,20 +23,29 @@
   cursor: pointer;
 }
 
+.header-menu.active-pointer {
+  pointer-events: auto;
+}
+
 .menu-icon {
   display: none;
 }
 
-@media (max-width: 767px) {
+.header-menu.active-pointer {
+  pointer-events: auto;
+}
+
+@media (width < 768px) {
   .menu-icon {
     display: block;
+    cursor: pointer;
   }
 
   .header-menu {
     z-index: 10;
     position: absolute;
     top: 3rem;
-    right: 4rem;
+    right: 3rem;
     flex-direction: column;
     align-items: flex-start;
     gap: 2rem;

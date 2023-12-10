@@ -27,23 +27,23 @@
   gap: 1.5rem;
 }
 
-.property-details .first__head {
+.property-details .head {
   width: 100%;
   justify-content: space-between;
   gap: 0.2rem;
 }
 
-.property-details .first__head > p {
+.property-details .head > p {
   font-size: 2rem;
 }
 
-.facilities {
+.property-details .facilities {
   gap: 1rem;
   padding: 1rem;
   font-size: 0.9rem;
 }
 
-.facility {
+.property-details .facility {
   gap: 0.5rem;
 }
 
@@ -62,4 +62,23 @@
 .property-details .button {
   width: 100%;
   margin-top: 1rem;
+}
+
+@media (width < 768px) {
+  .property-container > div {
+    flex-direction: column;
+  }
+
+  .property-details > div {
+    width: 100%;
+  }
+
+  .property-details .head {
+    flex-direction: column;
+  }
+
+  .property-details .facilities {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

@@ -12,7 +12,6 @@ function useBookings() {
   const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ["allBookings"],
     queryFn: () => {
-      // Check if user is true before making the API call
       if (user) {
         return getBookings(user?.email, userDetails?.token);
       }

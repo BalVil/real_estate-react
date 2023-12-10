@@ -4,7 +4,6 @@ import FavoriteHeart from "../FavoriteHeart/FavoriteHeart";
 import "./PropertyCard.css";
 
 function PropertyCard({ card }) {
-  // console.log(card);
   const navigate = useNavigate();
 
   return (

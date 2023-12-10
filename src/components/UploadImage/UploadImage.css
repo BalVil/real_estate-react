@@ -1,0 +1,19 @@
+.upload {
+  margin-top: 3rem;
+  gap: 2rem;
+}
+
+.upload_zone {
+  width: 80%;
+  height: 25rem;
+  border: 2px dashed grey;
+  cursor: pointer;
+}
+
+.upload_image {
+  width: 80%;
+  height: 26rem;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+}

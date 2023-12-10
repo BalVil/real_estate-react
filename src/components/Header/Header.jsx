@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { BiMenuAltRight } from "react-icons/bi";
@@ -12,9 +12,26 @@ import "./Header.css";
 
 function Header() {
   const [menuOpened, setMenuOpened] = useState(false);
+  const [disableBodyClick, setDisableBodyClick] = useState(false);
+
   const [opened, { open, close }] = useDisclosure(false);
   const { loginWithRedirect, user, isAuthenticated } = useAuth0();
   const { validateLogin } = useAuthCheck();
+
+  const handleOutsideClick = () => {
+    if (menuOpened) {
+      setMenuOpened(false);
+      setDisableBodyClick(false);
+    }
+  };
+
+  useEffect(() => {
+    if (disableBodyClick) {
+      document.body.classList.add("disable-body-click");
+    } else {
+      document.body.classList.remove("disable-body-click");
+    }
+  }, [disableBodyClick]);
 
   return (
     <section className="header-wrapper">
@@ -25,9 +42,11 @@ function Header() {
           </div>
         </Link>
 
-        <OutsideClickHandler onOutsideClick={() => setMenuOpened(false)}>
+        <OutsideClickHandler onOutsideClick={handleOutsideClick}>
           <div
-            className="flexCenter header-menu"
+            className={`flexCenter header-menu ${
+              menuOpened && "active-pointer"
+            }`}
             style={getMenuStyles(menuOpened)}
           >
             <NavLink to="/properties">Properties</NavLink>
@@ -54,7 +73,10 @@ function Header() {
 
         <div
           className="menu-icon"
-          onClick={() => setMenuOpened((prev) => !prev)}
+          onClick={() => {
+            setMenuOpened(!menuOpened);
+            setDisableBodyClick(!menuOpened);
+          }}
         >
           <BiMenuAltRight size={30} />
         </div>

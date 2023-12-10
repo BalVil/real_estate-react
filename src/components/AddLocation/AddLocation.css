@@ -1,0 +1,13 @@
+.form-content {
+  justify-content: space-between;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.form-content_first {
+  flex: 1;
+}
+
+.form-content_second {
+  flex: 2;
+}
