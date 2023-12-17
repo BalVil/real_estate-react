@@ -8,6 +8,7 @@ import "./Residencies.css";
 function Residencies() {
   const swiperRef = useRef(null);
   const { data, isLoading, isError } = useProperties();
+  console.log(data);
 
   // Function to go to the next slide
   const slideNext = () => {
@@ -71,6 +72,15 @@ function Residencies() {
           color="#4066ff"
           aria-label="puff-loading"
         />
+      </div>
+    );
+  }
+
+  // Check if data is an array
+  if (!Array.isArray(data)) {
+    return (
+      <div className="wrapper">
+        <span>Data is not in the expected format</span>
       </div>
     );
   }
