@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 export const api = axios.create({
   // baseURL: "http://localhost:8000/api",
-  baseURL: `${process.env.REACT_APP_ARCGIS}`,
+  baseURL: `${process.env.REACT_APP_BASE_URL}`,
 });
 console.log(api);
 
