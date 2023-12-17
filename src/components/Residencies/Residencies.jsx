@@ -75,15 +75,6 @@ function Residencies() {
     );
   }
 
-  // Check if data is an array
-  // if (!Array.isArray(data)) {
-  //   return (
-  //     <div className="wrapper">
-  //       <span>Data is not in the expected format</span>
-  //     </div>
-  //   );
-  // }
-
   return (
     <section className="r-wrapper" id="residencies">
       <div className="paddings innerWidth r-container">
