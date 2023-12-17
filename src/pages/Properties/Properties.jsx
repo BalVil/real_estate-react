@@ -9,7 +9,6 @@ import "./Properties.css";
 function Properties() {
   const { data, isLoading, error } = useProperties();
   const [searchValue, setSearchValue] = useState("");
-  console.log(data);
 
   const filteredData = useFilteredProperties(data, searchValue);
 

@@ -8,7 +8,6 @@ import "./Residencies.css";
 function Residencies() {
   const swiperRef = useRef(null);
   const { data, isLoading, isError } = useProperties();
-  console.log(data);
 
   // Function to go to the next slide
   const slideNext = () => {
@@ -53,14 +52,6 @@ function Residencies() {
       swiperRef.current.initialize();
     }
   }, [data]);
-
-  if (isError) {
-    return (
-      <div className="wrapper">
-        <span>Error while fetching data</span>
-      </div>
-    );
-  }
 
   if (isLoading) {
     return (

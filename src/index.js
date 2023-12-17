@@ -13,8 +13,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       domain={process.env.REACT_APP_AUTH0_DOMAIN}
       clientId={process.env.REACT_APP_AUTH0_CLIENTID}
       authorizationParams={{
-        redirect_uri: "http://localhost:3000",
-        // audience: "http://localhost:8000",
+        redirect_uri: "https://real-estate-react-frontend.vercel.app",
+        // audience: "http://localhost:3000",
         audience: `${process.env.REACT_APP_AUTH0_AUDIENCE}`,
         scope: "openid profile email",
         // scope: "read:current_user",
