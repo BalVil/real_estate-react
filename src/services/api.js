@@ -2,7 +2,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 export const api = axios.create({
-  baseURL: `${process.env.REACT_APP_ARCGIS}`,
+  baseURL: "http://localhost:8000/api",
+  // baseURL: `${process.env.REACT_APP_ARCGIS}`
 });
 
 export const getProperties = async () => {
@@ -11,10 +12,6 @@ export const getProperties = async () => {
 
     if (res.status === 400 || res.status === 500) {
       throw res.data;
-    }
-
-    if (res.status < 200 || res.status >= 300) {
-      throw new Error(`Unexpected status code: ${res.status}`);
     }
 
     return res.data;

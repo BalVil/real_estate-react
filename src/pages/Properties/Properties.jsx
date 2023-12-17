@@ -9,6 +9,7 @@ import "./Properties.css";
 function Properties() {
   const { data, isLoading, error } = useProperties();
   const [searchValue, setSearchValue] = useState("");
+  console.log(data);
 
   const filteredData = useFilteredProperties(data, searchValue);
 
@@ -35,14 +36,18 @@ function Properties() {
   }
 
   return (
-    <div className="flexColCenter paddings innerWidth properties-container">
-      <SearchBar filter={searchValue} setFilter={setSearchValue} />
-      <div className="paddings flexCenter properties">
-        {filteredData.map((card) => (
-          <PropertyCard card={card} key={card.id} />
-        ))}
-      </div>
-    </div>
+    <>
+      {data && (
+        <div className="flexColCenter paddings innerWidth properties-container">
+          <SearchBar filter={searchValue} setFilter={setSearchValue} />
+          <div className="paddings flexCenter properties">
+            {filteredData.map((card) => (
+              <PropertyCard card={card} key={card.id} />
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
